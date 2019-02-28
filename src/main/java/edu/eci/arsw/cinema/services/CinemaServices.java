@@ -16,11 +16,13 @@ import edu.eci.arsw.cinema.persistence.CinemaPersitence;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author 2098325
  */
+@Service
 public class CinemaServices {
     @Autowired
     CinemaPersitence cps;

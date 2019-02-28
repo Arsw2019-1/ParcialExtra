@@ -80,4 +80,9 @@ public class FilterByAvailability implements CinemaFilter {
         }
         return resp;
     }
+
+    @Override
+    public List<Cinema> getAllCinema() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
