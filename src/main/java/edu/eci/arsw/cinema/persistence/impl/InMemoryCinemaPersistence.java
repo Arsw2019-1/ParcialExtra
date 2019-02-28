@@ -32,13 +32,34 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     public InMemoryCinemaPersistence() {
         //load stub data
         String functionDate = "2018-12-18 15:30";
+        String functionDate2 = "2028-10-19 15:30";        
         List<CinemaFunction> functions= new ArrayList<>();
         CinemaFunction funct1 = new CinemaFunction(new Movie("SuperHeroes Movie","Action"),functionDate);
         CinemaFunction funct2 = new CinemaFunction(new Movie("The Night","Horror"),functionDate);
         functions.add(funct1);
         functions.add(funct2);
+        //Cine
         Cinema c=new Cinema("cinemaX",functions);
         cinemas.put("cinemaX", c);
+        //Agregar 2 cinemas mas
+        functions.clear();        
+        //
+        funct1 = new CinemaFunction(new Movie("Mis huellas a casa","Drama"),"2020-5-28");
+        funct2 = new CinemaFunction(new Movie("Advengers","Accion"),"2019-8-20");
+        functions.add(funct1);
+        functions.add(funct2);
+        //
+        Cinema c1=new Cinema("CineColombia",functions);
+        cinemas.put("CineC",c1);
+        functions.clear();
+        funct1 = new CinemaFunction(new Movie("Colombia en 50 años","Historia"),"2020-5-28");
+        funct2 = new CinemaFunction(new Movie("MI feliz cumpleaños","Accion"),"2019-8-20");
+        functions.add(funct1);
+        functions.add(funct2);
+        Cinema c2=new Cinema("Procinal",functions);
+        //agergando funciones a cines
+
+        cinemas.put("CineP",c2);
     }    
 
     @Override
