@@ -125,4 +125,49 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
         return cinemas.values();
     }
 
+    @Override
+    public List<Cinema> getAllCinema() throws CinemaPersistenceException {
+        List<Cinema> resp = new ArrayList<Cinema>();
+        Iterator it = cinemas.keySet().iterator();
+        while (it.hasNext()) {
+            String key =(String) it.next();
+                        System.out.println("Agergaando"+cinemas.get(key));
+                        resp.add(cinemas.get(key));
+        }
+
+        return resp;
+        
+        
+        
+    }
+    @Override
+    public List<Movie> getListMovies(Cinema cinema, String date, Object factor) {
+        
+        List<Movie> resp = new ArrayList<Movie>();
+
+        Cinema temp = getCinemaString(cinema);
+        List<CinemaFunction> tempCi = temp.getFunctions();
+
+        for (CinemaFunction fu : tempCi) {
+            if (date.equals(fu.getDate())) {
+                Movie tem = fu.getMovie();
+                if (tem.getGenre().equals((String) factor)) {
+                    resp.add(tem);
+                }
+            }
+        }
+        return resp;
+    }
+    public Cinema getCinemaString(Cinema name) {
+        Cinema resp = null;
+        Iterator it;
+        it = cinemas.keySet().iterator();
+        while (it.hasNext()) {
+            String key = (String) it.next();
+            if (cinemas.get(key).getName().equals(name.getName())) {
+                resp = cinemas.get(key);
+            }
+        }
+        return resp;
+    }
 }

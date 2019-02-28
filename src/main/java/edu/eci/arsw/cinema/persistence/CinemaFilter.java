@@ -18,6 +18,6 @@ public interface CinemaFilter {
     
     public List<Movie> getListMovies(Cinema cinema, String date, Object factor);
     
-    public List<Cinema> getAllCinema();
+    public List<Cinema> getAllCinema() throws CinemaPersistenceException;
     
 }
