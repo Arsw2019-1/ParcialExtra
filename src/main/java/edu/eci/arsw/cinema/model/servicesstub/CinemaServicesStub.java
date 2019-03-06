@@ -39,28 +39,16 @@ public class CinemaServicesStub {
         functions.add(funct1);
         functions.add(funct2);    
         cinema.addNewCinema( new Cinema("El principio del fin", functions));
-
     }
     public void consCIne() throws CinemaPersistenceException, ResourceNotFoundException{
-    
         System.out.println("Los cines son: "+cinema.getAllCinemas());
-    
     }
-    
     public void funcByCinema(String name, String date){
-        
         System.out.println("Las funciones del cine : "+name+" son :"+cinema.getFunctionsbyCinemaAndDate(name, date));
-    
     }
-    
     public void buyTickets() throws CinemaException{
         cinema.buyTicket(1, 2, "El principio del fin", "2020-12-29 6:45", "BATTLE ANGEL: LA ÚLTIMA GUERRERA");
         cinema.buyTicket(5, 5, "Circo Soledad", "2028-9-20 19:30", "Advengers End Game");
         cinema.buyTicket(5, 5, "El principio del fin", "2020-12-29 6:45", "Advengers End Game");    
     }
-    
-    
-    
-    
-    
 }

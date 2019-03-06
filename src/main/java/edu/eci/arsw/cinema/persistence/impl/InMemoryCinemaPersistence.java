@@ -42,21 +42,23 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
         Cinema c=new Cinema("cinemaX",functions);
         cinemas.put("cinemaX", c);
         //Agregar 2 cinemas mas
-        functions.clear();        
+
         //
-        funct1 = new CinemaFunction(new Movie("Mis huellas a casa","Drama"),"2020-5-28");
-        funct2 = new CinemaFunction(new Movie("Advengers","Accion"),"2019-8-20");
-        functions.add(funct1);
-        functions.add(funct2);
+        List<CinemaFunction> functions2= new ArrayList<>();
+        CinemaFunction funct21 = new CinemaFunction(new Movie("Mis huellas a casa","Drama"),"2020-5-28");
+        CinemaFunction funct22 = new CinemaFunction(new Movie("Advengers","Accion"),"2019-8-20");
+        functions2.add(funct21);
+        functions2.add(funct22);
         //
-        Cinema c1=new Cinema("CineColombia",functions);
+        Cinema c1=new Cinema("CineColombia",functions2);
         cinemas.put("CineC",c1);
-        functions.clear();
-        funct1 = new CinemaFunction(new Movie("Colombia en 50 años","Historia"),"2020-5-28");
-        funct2 = new CinemaFunction(new Movie("MI feliz cumpleaños","Accion"),"2019-8-20");
-        functions.add(funct1);
-        functions.add(funct2);
-        Cinema c2=new Cinema("Procinal",functions);
+        //
+        List<CinemaFunction> functions3= new ArrayList<>();
+        CinemaFunction funct31 = new CinemaFunction(new Movie("Colombia en 50 años","Historia"),"2020-5-28");
+        CinemaFunction funct32 = new CinemaFunction(new Movie("MI feliz cumpleaños","Accion"),"2019-8-20");
+        functions3.add(funct31);
+        functions3.add(funct32);
+        Cinema c2=new Cinema("Procinal",functions3);
         //agergando funciones a cines
 
         cinemas.put("CineP",c2);
