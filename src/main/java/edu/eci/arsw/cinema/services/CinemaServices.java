@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -30,7 +31,19 @@ public class CinemaServices {
     @Autowired
     CinemaFilter cpsf;
 
-    
+  
+    public Movie CynemasByNameDateMovie(String cinema, String date, String movie){
+        List<CinemaFunction> temp=cps.getFunctionsbyCinemaAndDate(cinema, date);
+        Movie resp=null;
+        for(CinemaFunction tr: temp){
+            System.out.print("pensando");
+            if(tr.getMovie().equals(movie)){
+                System.out.print("entro");
+                resp=tr.getMovie();
+            }
+        }
+        return resp;
+    }
     
     public List<Movie> getMovieByGender(Cinema cinema, String date, Object factor){
         return cpsf.getListMovies(cinema, date, factor);
@@ -41,6 +54,7 @@ public class CinemaServices {
         return cpsf.getListMovies(cinema, date, factor);
     }*/
     public void addNewCinema(Cinema c) throws ResourceNotFoundException, CinemaPersistenceException{
+        
         cps.saveCinema(c);
     }
     
@@ -67,4 +81,9 @@ public class CinemaServices {
     public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date) {
         return cps.getFunctionsbyCinemaAndDate(cinema, date);
     }
+    
+
+    
+    
+    
 }
