@@ -1,0 +1,29 @@
+ *Las condiciones de carrera que se podrian presentar, serian cuando 2 o mas solicitudes diferentes soliciten 
+    o modifiquen algun recurso y se pierda la persistencia de los datos.
+    Tambien cuando se compren asientos, si no se maneja eso con cuidado dos personas 
+    podrian comprar el mismo asiento cada una.
+
+
+ *Cuando se solicitan cinemas, o editan/eliminan cinemas, peliculas o asientos, ya que 
+    un mal manejo podria ocacionar excepciones durante la ejecucion del codigo.
+
+
+
+
+Solucion :
+
+MI solucion planteada consumiria mas mememoria, ya que tendria para un determinado  numero de 
+    usuarios conectados una cierta cantidad de arreglos temporales que realicen una operacion
+    a la vez y de esta manera muchas peticiones puedan acceder a la informacion. La cual
+    al ser modificada se cambiara inmediatamente en el resto de arreglos/estados de variables
+    para que la persistencia de la aplicacion se mantenga.
+    
+    Como ejemplo si se tiene mil solicitudes, en vez de tner solo 1 arreglo que maneje todo, se podrian
+    tener 1/5 de esa cantidad, es decir 200 que se crearian dinamicamente y segun demanda para que
+    pueda soportar la carga masiva de usuarios y de peticiones concurrentes.
+
+    COn el asunto de modificacion con los arreglos/variables reales para que la informacion se 
+    mantenga persistente, se debe dar un tiempo corto entre operacion y operacion (Actuar del cliente)
+    (Actuar estado de memoria temporal) y (actuar estado de memoria real), para que de esta manera 
+    todo siga igual, un poco mas lento, pero no considerablemente si lo realizamos como se haria 
+    con la sincronizacion.
